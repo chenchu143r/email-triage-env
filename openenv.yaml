@@ -1,0 +1,19 @@
+name: email-triage-env
+version: '1.0.0'
+description: Real-world email triage environment for AI agent training
+author: chenchu11
+tags:
+  - openenv
+  - email
+  - nlp
+tasks:
+  - {name: task_1_classify, difficulty: easy}
+  - {name: task_2_extract, difficulty: medium}
+  - {name: task_3_draft, difficulty: hard}
+endpoints:
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+  tasks: GET /tasks
+  grader: POST /grader
+  baseline: GET /baseline
