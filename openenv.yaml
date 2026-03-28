@@ -1,15 +1,59 @@
 name: email-triage-env
-version: '1.0.0'
+version: "1.0.0"
 description: Real-world email triage environment for AI agent training
 author: chenchu11
 tags:
   - openenv
   - email
   - nlp
+
+observation_space:
+  type: object
+  fields:
+    email_id: string
+    subject: string
+    body: string
+    sender: string
+    timestamp: string
+    task_name: string
+    task_description: string
+    step_count: integer
+    max_steps: integer
+
+action_space:
+  type: object
+  fields:
+    action_type:
+      type: string
+      enum: [classify, extract, draft]
+    classification:
+      type: string
+      enum: [urgent, normal, spam]
+      optional: true
+    action_items:
+      type: array
+      items: string
+      optional: true
+    draft_reply:
+      type: string
+      optional: true
+
+reward_space:
+  type: float
+  min: -0.1
+  max: 1.0
+
 tasks:
-  - {name: task_1_classify, difficulty: easy}
-  - {name: task_2_extract, difficulty: medium}
-  - {name: task_3_draft, difficulty: hard}
+  - name: task_1_classify
+    difficulty: easy
+    description: Classify email urgency as urgent, normal, or spam
+  - name: task_2_extract
+    difficulty: medium
+    description: Extract all action items from the email
+  - name: task_3_draft
+    difficulty: hard
+    description: Draft a professional reply to the client complaint
+
 endpoints:
   reset: POST /reset
   step: POST /step
