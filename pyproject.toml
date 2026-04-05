@@ -1,0 +1,16 @@
+[project]
+name = "email-triage-env"
+version = "1.0.0"
+description = "Real-world email triage environment for AI agent training"
+authors = [{name = "chenchu11"}]
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi==0.110.0",
+    "uvicorn==0.27.1",
+    "pydantic==2.6.3",
+    "openai",
+    "pyyaml",
+]
+
+[project.scripts]
+serve = "server:app"
