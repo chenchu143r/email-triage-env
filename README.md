@@ -9,19 +9,21 @@ tags:
 ---
 
 # Email Triage Environment
-Real-world OpenEnv for AI agent email triage training.
+
+Real-world OpenEnv for training AI agents to triage workplace emails.
 
 ## Tasks
 | Task | Difficulty | Description |
 |------|-----------|-------------|
-| task_1_classify | Easy | Classify email as urgent/normal/spam |
-| task_2_extract | Medium | Extract action items |
-| task_3_draft | Hard | Draft professional reply |
+| task_1_classify | Easy | Classify 6 emails as urgent/normal/spam |
+| task_2_extract | Medium | Extract action items from 2 emails |
+| task_3_draft | Hard | Draft professional reply to complaints |
 
-## Baseline Scores
-| Task | Score |
-|------|-------|
-| task_1_classify | 0.77 |
-| task_2_extract | 1.00 |
-| task_3_draft | 0.95 |
-| Average | 0.91 |
+## API
+- POST /reset - Start episode
+- POST /step - Take action
+- GET /state - Current state
+- GET /tasks - List tasks
+- POST /grader - Get score
+- GET /baseline - Baseline scores
+- GET /health - Health check
