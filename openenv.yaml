@@ -1,9 +1,9 @@
 id: email-triage-env
 name: Email Triage Environment
 version: 1.0.0
-description: Real-world email triage environment for AI agent training
+description: Real-world email triage environment for AI agent training. Agents classify urgency, extract action items, and draft professional replies.
 author: chenchu11
-tags: [openenv, email, nlp]
+tags: [openenv, email, nlp, real-world, triage, classification]
 
 reset:
   method: POST
